@@ -64,8 +64,12 @@ export function mapStreamer(raw: ApiStreamer): Streamer {
 }
 
 export async function fetchStreamers(): Promise<Streamer[]> {
-  const response = await fetch('/api/chess/streamers', {
+  const endpoint = import.meta.env.DEV
+    ? '/api/chess/streamers'
+    : `${import.meta.env.BASE_URL}streamers.json?t=${Date.now()}`
+  const response = await fetch(endpoint, {
     headers: { Accept: 'application/json' },
+    cache: 'no-store',
   })
 
   if (!response.ok) {

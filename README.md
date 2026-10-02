@@ -89,6 +89,12 @@ docs/
 - O proxy está configurado no servidor de desenvolvimento do Vite. Um deploy de produção precisa de uma estratégia própria para acessar a API.
 - Os favoritos são locais ao navegador e não são sincronizados entre dispositivos.
 
+## Deploy no GitHub Pages
+
+O workflow `.github/workflows/deploy.yml` publica o app quando há push para `main` e também atualiza a lista em uma agenda periódica. Antes de gerar o site, ele busca os dados da API e grava `public/streamers.json`; em produção, o app carrega esse arquivo estático, já que GitHub Pages não executa o proxy de desenvolvimento.
+
+No repositório, habilite **Settings → Pages → Build and deployment → Source → GitHub Actions**. O endereço do projeto é `https://almeidafabio.github.io/chess_streamers/`. As execuções agendadas do GitHub Actions podem sofrer atrasos, então a atualização não é garantida no segundo exato do intervalo.
+
 ## Licença
 
 Nenhuma licença foi definida para este projeto ainda.
