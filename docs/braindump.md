@@ -1,0 +1,4 @@
+- Aplicação em React Vite, typescript e tailwind
+- acessa a API: https://api.chess.com/pub/streamers e lista os streamers online - avatar, nome, link da twitch e se estar online
+- deve haver paginação - limite de 15 
+- os streamers ao vivo devem estar listados antes dos offline
