@@ -23,7 +23,7 @@ export function StreamerList({
   }
 
   return (
-    <ul className="grid gap-3">
+    <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {streamers.map((streamer) => (
         <li key={streamer.id}>
           <StreamerCard

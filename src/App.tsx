@@ -10,11 +10,11 @@ export const REFRESH_INTERVAL_MS = 60_000
 
 function SkeletonList() {
   return (
-    <ul className="grid gap-3" aria-hidden="true">
+    <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-hidden="true">
       {Array.from({ length: 6 }, (_, index) => (
         <li
           key={index}
-          className="h-20.5 animate-pulse rounded-xl border border-zinc-800 bg-zinc-900/50"
+          className="h-28 animate-pulse rounded-2xl border border-zinc-800 bg-zinc-900/50"
         />
       ))}
     </ul>
@@ -124,16 +124,16 @@ function App() {
   const showSkeleton = loading && streamers.length === 0
 
   return (
-    <div className="mx-auto min-h-svh max-w-2xl px-4 py-10">
-      <header className="mb-6">
-        <p className="text-sm font-medium tracking-wide text-violet-300 uppercase">
+    <div className="mx-auto min-h-svh max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+      <header className="mb-8">
+        <p className="text-xs font-semibold tracking-[0.2em] text-violet-300 uppercase">
           Chess.com
         </p>
-        <h1 className="mt-1 text-3xl font-semibold tracking-tight text-white">
+        <h1 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
           Streamers
         </h1>
         {!showInitialError && streamers.length > 0 ? (
-          <p className="mt-2 text-sm text-zinc-400">
+          <p className="mt-3 text-sm text-zinc-400">
             {liveCount} ao vivo · {filtered.length} exibidos · {streamers.length} no
             total
           </p>
